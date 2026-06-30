@@ -5,9 +5,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 # MongoDB Atlas Connection
-client = MongoClient("mongodb+srv://Admin:Admin%40123@cluster1.jumillq.mongodb.net/?appName=Cluster1")
-
-db = client["studentdb"]
+client = MongoClient("mongodb+srv://Admin:Admin@%40123@cluster1.jumillq.mongodb.net/?appName=Cluster1")
 collection = db["students"]
 
 # Home Route
@@ -43,7 +41,7 @@ def submit():
             "course": course
         }
 
-        collection.insert_one(data)
+    # collection.insert_one(data)
 
         return render_template('success.html')
 
